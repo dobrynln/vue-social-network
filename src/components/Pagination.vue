@@ -1,0 +1,38 @@
+<template>
+  <ul class="ul-pag">
+    <li class="ul-pag__item" v-for="page in pages" :key="page" :class="{'active-li': currentPage === page}">
+        <router-link :to="{path: url, query: {page: page}}">{{page}}</router-link>
+    </li>
+  </ul>
+</template>
+
+<script>
+import {range} from '../localHelpers/until'
+export default {
+  props: {
+      total: {
+          type: Number,
+          required: true
+      },
+      limit: {
+          type: Number,
+          required: true
+      },
+      currentPage: {
+          type: Number,
+          required: true
+      },
+      url: {
+          type: String,
+          required: true
+      }
+  },
+  data: () => ({}),
+  computed: {
+      pages() {
+          const pagesCount = Math.ceil(this.total / this.limit)
+          return range(1, pagesCount)
+      }
+  }
+};
+</script>

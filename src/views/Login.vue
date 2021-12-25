@@ -28,9 +28,7 @@
               >Пароль введен неверно</span
             >
           </v-col>
-          <v-btn class="btn_question-user"
-            >Зарегистрироваться?</v-btn
-          >
+          <router-link :to="{name:'register'}">Зарегистрироваться?</router-link>
           <v-btn type="submit">Авторизоваться</v-btn>
         </div>
       </v-form>

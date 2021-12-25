@@ -8,17 +8,28 @@ export const mutationsType = {
 
   loginStart: '[auth] loginStart',
   loginSuccess: '[auth] loginSuccess',
-  loginFailed: '[auth] loginFailed'
+  loginFailed: '[auth] loginFailed',
+
+  getCurrentUserStart: '[auth] getCurrentUserStart',
+  getCurrentUserSuccess: '[auth] getCurrentUserSuccess',
+  getCurrentUserFailed: '[auth] getCurrentUserFailed'
 }
 export const actionType = {
   register: '[auth] register',
-  login: '[auth] login'
+  login: '[auth] login',
+  getCurrentUser: '[auth] getCurrentUser'
+}
+export const gettersType = {
+  currentUser: '[auth] currentUser',
+  inLoggedIn: '[auth] inLoggedIn',
+  inAnonim: '[auth] inAnonim'
 }
 export default {
   state: {
     isSubmitting: false,
     currentUser: null,
-    inLoggedIn: null
+    inLoggedIn: null,
+    isLoading: true
   },
   mutations: {
     [mutationsType.registerStart] (state) {
@@ -42,6 +53,19 @@ export default {
     },
     [mutationsType.loginFailed] (state) {
       state.isSubmitting = false
+    },
+    [mutationsType.getCurrentUserStart] (state) {
+      state.isLoading = true
+    },
+    [mutationsType.getCurrentUserSuccess] (state, payload) {
+      state.isLoading = false
+      state.currentUser = payload
+      state.inLoggedIn = true
+    },
+    [mutationsType.getCurrentUserFailed] (state) {
+      state.isLoading = false
+      state.inLoggedIn = false
+      state.currentUser = null
     }
   },
   actions: {
@@ -72,7 +96,32 @@ export default {
             console.log(e)
           })
       })
+    },
+    [actionType.getCurrentUser] ({ commit }) {
+      return new Promise((resolve) => {
+        commit(mutationsType.getCurrentUserStart)
+        authApi.getUser()
+          .then((res) => {
+            commit(mutationsType.getCurrentUserSuccess, res.data.user)
+            resolve(res.data.user)
+          }).catch(e => {
+            commit(mutationsType.getCurrentUserFailed)
+            console.log(e)
+          })
+      })
     }
+  },
+  getters: {
+    [gettersType.inLoggedIn]: state => {
+      return Boolean(state.inLoggedIn)
+    },
+    [gettersType.currentUser]: state => {
+      return state.currentUser
+    },
+    [gettersType.inAnonim]: state => {
+      return state.inLoggedIn === false
+    }
+
   },
   modules: {}
 }

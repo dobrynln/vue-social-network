@@ -59,13 +59,10 @@
               >Повторный пароль неправильный</span
             >
           </v-col>
-          <v-btn class="btn_question-user"
-            >Уже есть аккаунт? Авторизоваться?</v-btn
-          >
+          <router-link :to="{name:'login'}">Уже есть аккаунт? Авторизоваться?</router-link>
           <v-btn type="submit">Регистрация</v-btn>
         </div>
       </v-form>
-      <v-btn @click="getData">CLICK</v-btn>
     </div>
   </section>
 </template>

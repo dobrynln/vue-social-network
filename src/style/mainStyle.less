@@ -6,9 +6,12 @@ html {
 *::after {
   box-sizing: inherit;
 }
+* {
+  color: #272848;
+}
 a,
 button {
-  color: white;
+  color: #272848;
   text-decoration: none;
   border: none;
   background: none;
@@ -65,19 +68,22 @@ input {
   cursor: pointer;
 }
 body {
-  background-color: #000;
-  color: white;
-  font-family: "Inter", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  //font-family: 'Roboto', sans-serif;
 }
 .container {
   max-width: 1290px;
   margin: 0 auto;
 }
-// COLOR
-@gray-light: #f7f7f9;
+// COLORS
+@mindal-dark: #FFE4D5;
+@mindal-light: #efe0d8;
+@color-item: #f1c2c2;
+@gray: #6C6D8A;
+@blue-dark: #272848;
+@blue: #54C1FB;
+@purple: #6D71F9;
 @red-light: #e63956;
 //
 
@@ -98,4 +104,7 @@ body {
 }
 .span-invalid {
   color: #ff0000;
+}
+.v-main {
+  background-color: @mindal-light;
 }
