@@ -22,12 +22,12 @@ const routes = [
     path: '/userProfile',
     name: 'userProfile',
     component: Register
-  }, 
+  },
   {
     path: '/feed',
     name: 'yourFeed',
     component: Register
-  }, 
+  },
   {
     path: '/tags/:slug',
     name: 'tag',
@@ -62,7 +62,7 @@ const routes = [
     path: '/profiles/:slug/favorited',
     name: 'userProfileFavorited',
     component: Register
-  },
+  }
 ]
 
 const router = createRouter({

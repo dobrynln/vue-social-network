@@ -46,41 +46,68 @@
           </router-link>
         </div>
       </div>
-      <app-pagination :total="total" :limit="limit" :currentPage="currentPage" :url="url" />
+      <app-pagination :total="feed.articlesCount" :limit="limit" :currentPage="currentPage" :url="baseUrl" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { actionType } from "../store/feed";
+import { mapState } from 'vuex'
+import { actionType } from '../store/feed'
 import Pagintanion from '../components/Pagination'
+import { limit } from '../localHelpers/varbs'
+import { stringify, parseUrl } from 'query-string'
 export default {
-  name: "appFeed",
+  name: 'appFeed',
   props: {
     apiFeed: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   data: () => ({
-    total: 500,
-    limit: 10,
-    currentPage: 5,
-    url: '/tags/dragons'
+    limit,
+    url: '/'
   }),
   computed: {
     ...mapState({
       isLoading: (state) => state.feed.isLoading,
       feed: (state) => state.feed.data,
-      error: (state) => state.feed.error,
+      error: (state) => state.feed.error
     }),
+    currentPage () {
+      return Number(this.$route.query.page || '1')
+    },
+    baseUrl () {
+      return this.$route.path
+    },
+    offset () {
+      return this.currentPage * this.limit - this.limit
+    }
   },
-  mounted() {
-    this.$store.dispatch(actionType.getFeed, this.apiFeed);
+  watch: {
+    currentPage () {
+      this.getFeedRequest()
+    }
+  },
+  mounted () {
+    this.getFeedRequest()
+  },
+  methods: {
+    getFeedRequest () {
+      const urlParsed = parseUrl(this.apiFeed)
+      const stringifiParams = stringify({
+        limit,
+        offset: this.offset,
+        ...urlParsed.query
+      })
+      const apiParams = `${urlParsed.url}?${stringifiParams}`
+      console.log(stringifiParams, stringify)
+      this.$store.dispatch(actionType.getFeed, apiParams)
+    }
   },
   components: {
     'app-pagination': Pagintanion
   }
-};
+}
 </script>

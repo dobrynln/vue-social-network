@@ -7,32 +7,32 @@
 </template>
 
 <script>
-import {range} from '../localHelpers/until'
+import { range } from '../localHelpers/until'
 export default {
   props: {
-      total: {
-          type: Number,
-          required: true
-      },
-      limit: {
-          type: Number,
-          required: true
-      },
-      currentPage: {
-          type: Number,
-          required: true
-      },
-      url: {
-          type: String,
-          required: true
-      }
+    total: {
+      type: Number,
+      required: true
+    },
+    limit: {
+      type: Number,
+      required: true
+    },
+    currentPage: {
+      type: Number,
+      required: true
+    },
+    url: {
+      type: String,
+      required: true
+    }
   },
   data: () => ({}),
   computed: {
-      pages() {
-          const pagesCount = Math.ceil(this.total / this.limit)
-          return range(1, pagesCount)
-      }
+    pages () {
+      const pagesCount = Math.ceil(this.total / this.limit)
+      return range(1, pagesCount)
+    }
   }
-};
+}
 </script>
