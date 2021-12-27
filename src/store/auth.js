@@ -90,6 +90,7 @@ export default {
         authApi.login(credentials)
           .then((res) => {
             commit(mutationsType.loginSuccess, res.data.user)
+            setItem('accessToken', res.data.user.token)
             resolve(res.data)
           }).catch(e => {
             commit(mutationsType.loginFailed)

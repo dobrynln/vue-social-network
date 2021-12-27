@@ -3,7 +3,7 @@
     <div class="container">
       <div class="block-feed">
         <div class="block-feed__left">
-          <app-toggle-feed />
+          <app-toggle-feed :tagName="tagName" />
           <app-feed :apiFeed="apiUrl"></app-feed>
         </div>
         <div class="block-feed__right">POPULAR TAGS
@@ -19,10 +19,15 @@ import feed from '../components/Feed.vue'
 import PopularTag from '../components/PopularTag.vue'
 import ToggleFeed from '../components/ToggleFeed'
 export default {
-  name: 'appHome',
-  data: () => ({
-    apiUrl: '/articles'
-  }),
+  name: 'appYouFeed',
+  computed: {
+    tagName() {
+      return this.$route.params.slug
+    },
+    apiUrl () {
+      return (`/articles?tag=${this.tagName}`)
+    }
+  },
   components: {
     'app-feed': feed,
     'app-popular-tag': PopularTag,

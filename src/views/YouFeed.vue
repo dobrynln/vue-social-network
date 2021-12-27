@@ -19,9 +19,9 @@ import feed from '../components/Feed.vue'
 import PopularTag from '../components/PopularTag.vue'
 import ToggleFeed from '../components/ToggleFeed'
 export default {
-  name: 'appHome',
+  name: 'appYouFeed',
   data: () => ({
-    apiUrl: '/articles'
+    apiUrl: '/articles/feed'
   }),
   components: {
     'app-feed': feed,
