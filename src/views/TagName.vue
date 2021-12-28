@@ -21,7 +21,7 @@ import ToggleFeed from '../components/ToggleFeed'
 export default {
   name: 'appYouFeed',
   computed: {
-    tagName() {
+    tagName () {
       return this.$route.params.slug
     },
     apiUrl () {

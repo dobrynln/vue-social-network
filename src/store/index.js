@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import auth from '../store/auth'
 import feed from '../store/feed'
+import article from '../store/article'
 import popular from '../store/popular'
 export default createStore({
   state: {
@@ -12,6 +13,7 @@ export default createStore({
   modules: {
     auth,
     feed,
-    popular
+    popular,
+    article
   }
 })

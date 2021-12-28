@@ -15,26 +15,26 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {gettersType} from '../store/auth'
+import { mapGetters } from 'vuex'
+import { gettersType } from '../store/auth'
 export default {
-  name: "appToggleFeed",
+  name: 'appToggleFeed',
   props: {
     tagName: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
-      ...mapGetters({
-          isLoginUser: gettersType.inLoggedIn
-      }),
-      routerName() {
-          return this.$route.name
-      }
+    ...mapGetters({
+      isLoginUser: gettersType.inLoggedIn
+    }),
+    routerName () {
+      return this.$route.name
+    }
   },
-  mounted() {
-      console.log(this.$route.name)
+  mounted () {
+    console.log(this.$route.name)
   }
-};
+}
 </script>

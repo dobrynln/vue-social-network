@@ -4,6 +4,7 @@ import Login from '../views/Login'
 import Home from '../views/Home'
 import YouFeed from '../views/YouFeed'
 import TagName from '../views/TagName'
+import Article from '../views/Article'
 const routes = [
   {
     path: '/',
@@ -38,7 +39,7 @@ const routes = [
   {
     path: '/articles/:slug',
     name: 'article',
-    component: Register
+    component: Article
   },
   {
     path: '/articles/new',
