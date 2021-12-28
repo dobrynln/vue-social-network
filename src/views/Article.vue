@@ -40,7 +40,7 @@
       <div class="container">
         <div class="article-bottom">
           <p class="article-">{{ article.body }}</p>
-          taglist
+          <app-tag-list :tags="article.tagList"></app-tag-list>
         </div>
       </div>
     </div>
@@ -51,6 +51,7 @@
 import { mapState, mapGetters } from 'vuex'
 import { actionType } from '../store/article'
 import { gettersType } from '../store/auth'
+import TagList from '../components/TagList'
 export default {
   name: 'appArticle',
   computed: {
@@ -79,6 +80,9 @@ export default {
         this.$router.push({ name: 'home' })
       })
     }
+  },
+  components: {
+    'app-tag-list': TagList
   }
 }
 </script>

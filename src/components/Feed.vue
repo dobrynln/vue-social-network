@@ -41,7 +41,7 @@
             <p class="descr-feed">{{article.description}}</p>
             <div class="feed-middle__bottom">
               <span class="descr-read">Прочитать</span>
-              <ul><li>TAGS</li></ul>
+              <app-tag-list :tags="article.tagList"></app-tag-list>
             </div>
           </router-link>
         </div>
@@ -57,6 +57,7 @@ import { actionType } from '../store/feed'
 import Pagintanion from '../components/Pagination'
 import { limit } from '../localHelpers/varbs'
 import { stringify, parseUrl } from 'query-string'
+import TagList from '../components/TagList'
 export default {
   name: 'appFeed',
   props: {
@@ -107,7 +108,8 @@ export default {
     }
   },
   components: {
-    'app-pagination': Pagintanion
+    'app-pagination': Pagintanion,
+    'app-tag-list': TagList
   }
 }
 </script>
