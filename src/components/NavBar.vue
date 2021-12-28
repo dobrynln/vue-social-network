@@ -77,7 +77,7 @@
                 >
               </li>
               <li class="nav-list__item mr-2">
-                <router-link class="nav-list__item-link" :to="{ name: 'home' }">
+                <router-link class="nav-list__item-link" :to="{ name: 'createArticles' }">
                   Новый пост
                 </router-link>
               </li>

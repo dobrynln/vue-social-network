@@ -32,8 +32,7 @@ export default {
       return new Promise(resolve => {
         commit(mutationsType.getPopularStart)
         PopularApi.getPopular().then(tags => {
-          const arrayT = ['123', '123']
-          commit(mutationsType.getPopularSuccess, tags.push(arrayT))
+          commit(mutationsType.getPopularSuccess, tags)
           resolve(tags)
         }).catch(() => {
           commit(mutationsType.getPopularFailed)

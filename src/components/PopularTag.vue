@@ -3,8 +3,8 @@
     <div class="isloading" v-if="isLoading">loading tags</div>
     <div class="error-tag" v-if="error">error tag</div>
     <div class="block-popular__tags" v-if="tags">
-      <div class="block-popular__tags-item">
-        <router-link v-for="tag in tags" :key="tag" :to="{name: 'tag', params: {slug: tag}}">
+      <div class="block-popular__tags-item" v-for="tag in tags" :key="tag">
+        <router-link :to="{name: 'tag', params: {slug: tag}}">
           {{ tag }}
         </router-link>
       </div>

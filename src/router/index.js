@@ -5,6 +5,7 @@ import Home from '../views/Home'
 import YouFeed from '../views/YouFeed'
 import TagName from '../views/TagName'
 import Article from '../views/Article'
+import CreateFeed from '../components/CreateFeed'
 const routes = [
   {
     path: '/',
@@ -44,7 +45,7 @@ const routes = [
   {
     path: '/articles/new',
     name: 'createArticles',
-    component: Register
+    component: CreateFeed
   },
   {
     path: '/articles/:slug/edit',
