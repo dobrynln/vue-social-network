@@ -1,6 +1,6 @@
 .header {
   box-shadow: 0px 3px 23px -1px rgba(34, 60, 80, 0.16);
-  background-color: @mindal-dark;
+  background: linear-gradient(90deg, rgba(34,96,120,1) 16%, rgba(2,76,104,1) 50%, rgba(98,177,208,1) 100%);
   padding: 5px;
   .menu-header {
     display: flex;
@@ -12,11 +12,13 @@
         align-items: center;
         .nav-list__item {
           .nav-list__item-link {
+            color: @color6;
             font-size: 13px;
             display: flex;
             align-items: center;
             flex-direction: row-reverse;
             .img-user {
+              border-radius: 50%;
               width: 35px;
             }
           }
@@ -27,13 +29,14 @@
       .nav-list__item-link {
         .title-social {
           font-family: "Niconne", cursive;
-          color: #272848;
+          color: @color6;
           font-size: 35px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           span {
+            color: @color6;
             margin-top: -29px;
             margin-left: 77px;
             font-size: 24px;

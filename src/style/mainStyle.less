@@ -7,7 +7,7 @@ html {
   box-sizing: inherit;
 }
 * {
-  color: #272848;
+  color: @color3;
 }
 a,
 button {
@@ -76,14 +76,15 @@ body {
   max-width: 1290px;
   margin: 0 auto;
 }
-// COLORS
-@mindal-dark: #FFE4D5;
-@mindal-light: #efe0d8;
-@color-item: #f1c2c2;
-@gray: #6C6D8A;
+// COLORS 			
+@color1: #0776A0;
+@color2: #226078;
+@color3: #024C68;
+@color4: #3AA6D0;
+@color5: #62B1D0;
+@color6: #dbf5ff;
+@color7: #a6d5e7;
 @blue-dark: #272848;
-@blue: #54C1FB;
-@purple: #6D71F9;
 @red-light: #e63956;
 //
 
@@ -106,5 +107,30 @@ body {
   color: #ff0000;
 }
 .v-main {
-  background-color: @mindal-light;
+  background-color: @color6;
+}
+
+.edit-article {
+  font-size: 11px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #89d234;
+  color: #fff;
+  i {
+    color: #fff;
+  }
+}
+.delete-article {
+  font-size: 11px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: @red-light;
+  color: #fff;
+  i {
+    color: #fff;
+  }
 }

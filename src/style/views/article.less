@@ -1,0 +1,35 @@
+.article-block {
+  .article-top {
+    background-color: @color7;
+    box-shadow: 0px 3px 23px -1px rgba(34, 60, 80, 0.16);
+    padding: 20px 30px;
+    .article-top__author {
+      .article-top__author-left {
+        display: flex;
+        align-items: center;
+        margin-top: 35px;
+        .image-author {
+          a {
+            img {
+              width: 50px;
+              border-radius: 50%;
+            }
+          }
+        }
+        .author-info {
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+        }
+        .author-button {
+          display: flex;
+          align-items: center;
+          margin-left: 70px;
+          .delete-article {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
