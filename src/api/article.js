@@ -1,16 +1,24 @@
 import axios from './axios'
 
-const getArticle = (slug) => {
-  return axios.get(`/articles/${slug}`).then(res => res.data.article)
+const getArticle = slug => {
+  return axios.get(`/articles/${slug}`).then(response => response.data.article)
 }
 const deleteArticle = (slug) => {
   return axios.delete(`/articles/${slug}`)
 }
 const createArticle = articleInput => {
-  return axios.post('/articles', articleInput).then(res => res.data.article)
+  return axios
+    .post('/articles', { article: articleInput })
+    .then(response => response.data.article)
+}
+const updateArticle = (slug, articleInput) => {
+  return axios
+    .put(`/articles/${slug}`, { article: articleInput })
+    .then(response => response.data.article)
 }
 export default {
   getArticle,
   deleteArticle,
-  createArticle
+  createArticle,
+  updateArticle
 }

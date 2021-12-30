@@ -6,6 +6,7 @@ import YouFeed from '../views/YouFeed'
 import TagName from '../views/TagName'
 import Article from '../views/Article'
 import CreateFeed from '../components/CreateFeed'
+import editArticle from '../components/EditArticle'
 const routes = [
   {
     path: '/',
@@ -50,7 +51,7 @@ const routes = [
   {
     path: '/articles/:slug/edit',
     name: 'editArticle',
-    component: Register
+    component: editArticle
   },
   {
     path: '/settings',

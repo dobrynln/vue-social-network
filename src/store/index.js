@@ -4,6 +4,7 @@ import feed from '../store/feed'
 import article from '../store/article'
 import popular from '../store/popular'
 import createArticle from '../store/createArticle'
+import updateArticle from '../store/updateArticle'
 export default createStore({
   state: {
   },
@@ -16,6 +17,7 @@ export default createStore({
     feed,
     popular,
     createArticle,
-    article
+    article,
+    updateArticle
   }
 })

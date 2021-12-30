@@ -1,7 +1,7 @@
 <template>
   <section class="create-feed">
     <div class="container">
-      <app-create-form :initialValues="initialValues" :isSubmiting="isSubmiting" @articleSubmiting="onSubmit"></app-create-form>
+      <app-create-form :initialValues="initialValues" :isSubmitting="isSubmitting" @articleSubmiting="onSubmit"></app-create-form>
     </div>
   </section>
 </template>
@@ -9,7 +9,7 @@
 <script>
 import CreateFeedForm from '../components/CreateFeedForm'
 import { mapState } from 'vuex'
-import { actionTypeArticle } from '../store/createArticle'
+import { actionTypes } from '../store/createArticle'
 export default {
   name: 'appCreateFeed',
   data: () => ({
@@ -22,13 +22,13 @@ export default {
   }),
   computed: {
     ...mapState({
-      isSubmiting: state => state.createArticle.isSubmiting
+      isSubmitting: state => state.createArticle.isSubmitting
     })
   },
   methods: {
-    onSubmit (data) {
-      console.log(data)
-      this.$store.dispatch(actionTypeArticle.createArticle, data).then(article => {
+    onSubmit (articleInput) {
+      console.log('create', { articleInput })
+      this.$store.dispatch(actionTypes.createArticle, { articleInput }).then(article => {
         this.$router.push({ name: 'article', params: { slug: article.slug } })
       })
     }
