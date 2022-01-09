@@ -28,6 +28,9 @@ export default {
       return (`/articles?tag=${this.tagName}`)
     }
   },
+  mounted () {
+    console.log(this.tagName)
+  },
   components: {
     'app-feed': feed,
     'app-popular-tag': PopularTag,

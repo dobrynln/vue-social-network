@@ -33,7 +33,7 @@
               </router-link>
             </div>
           </div>
-          <div class="span">LIKE</div>
+          <app-favorites :Favorites="article.favorited" :FeedSlug="article.slug" :FavoritedCount="article.favoritesCount"></app-favorites>
         </div>
         <div class="feed-middle">
           <router-link :to="{name: 'article', params: {slug: article.slug}}">
@@ -58,6 +58,7 @@ import Pagintanion from '../components/Pagination'
 import { limit } from '../localHelpers/varbs'
 import { stringify, parseUrl } from 'query-string'
 import TagList from '../components/TagList'
+import FavoritesFeed from '../components/FavoritesFeed.vue'
 export default {
   name: 'appFeed',
   props: {
@@ -109,7 +110,8 @@ export default {
   },
   components: {
     'app-pagination': Pagintanion,
-    'app-tag-list': TagList
+    'app-tag-list': TagList,
+    'app-favorites': FavoritesFeed
   }
 }
 </script>

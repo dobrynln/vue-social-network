@@ -72,3 +72,26 @@
     overflow: hidden;
   }
 }
+.favorited {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid @color3;
+  border-radius: 10px;
+  &:hover {
+    background-color: @color3;
+    transition: all .5s;
+    i,.count-favorited {
+      color: @color6;
+    }
+  }
+  &.active-favorited {
+    background-color: @color3;
+    i,.count-favorited {
+      color: @color6;
+    }
+  }
+  .count-favorited {
+    margin-left: 5px;
+  }
+}

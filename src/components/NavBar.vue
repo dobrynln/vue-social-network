@@ -82,7 +82,7 @@
                 </router-link>
               </li>
               <li class="nav-list__item mr-2">
-                <router-link class="nav-list__item-link" :to="{ name: 'home' }">
+                <router-link class="nav-list__item-link" :to="{ name: 'settings' }">
                   Настройки
                 </router-link>
               </li>

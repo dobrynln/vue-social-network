@@ -7,6 +7,7 @@ import TagName from '../views/TagName'
 import Article from '../views/Article'
 import CreateFeed from '../components/CreateFeed'
 import editArticle from '../components/EditArticle'
+import settingProfile from '../views/Setting'
 const routes = [
   {
     path: '/',
@@ -56,7 +57,7 @@ const routes = [
   {
     path: '/settings',
     name: 'settings',
-    component: Register
+    component: settingProfile
   },
   {
     path: '/profiles/:slug',

@@ -5,6 +5,8 @@ import article from '../store/article'
 import popular from '../store/popular'
 import createArticle from '../store/createArticle'
 import updateArticle from '../store/updateArticle'
+import settingsProfile from '../store/settings'
+import favorites from '../store/favorites'
 export default createStore({
   state: {
   },
@@ -18,6 +20,8 @@ export default createStore({
     popular,
     createArticle,
     article,
-    updateArticle
+    updateArticle,
+    settingsProfile,
+    favorites
   }
 })
